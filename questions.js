@@ -32,11 +32,11 @@ array.splice(aleatorio, 0, right);
   return array;
 }
 
-function createTemplate(question, arrAns, correct){
+function createTemplate(question, arrAns, correct, id){
   let result = `
   <div class="olympicQuestion"> 
     <h3 class="question">${question}</h3>
-    <button class="btnList btnletterA" type="submit">${arrAns[0]}</button>
+    <button data-id="" class="btnList btnletterA" type="submit">${arrAns[0]}</button>
     <button class="btnList btnletterB" type="submit">${arrAns[1]}</button>
     <button class="btnList btnletterC" type="submit">${arrAns[2]}</button>
     <button class="btnList btnletterD" type="submit">${arrAns[3]}</button>
@@ -46,20 +46,21 @@ function createTemplate(question, arrAns, correct){
 }
 
 function events(correct){
-$(".btnletterA").bind("click", confirmAlternative(correct));
-$(".btnletterB").bind("click", confirmAlternative(correct));
-$(".btnletterC").bind("click", confirmAlternative(correct));
-$(".btnletterD").bind("click", confirmAlternative(correct));
+$(`.btnletterA[data-id=${id}]`).on("click", () => {confirmAlternative(correct)});
+// $(".btnletterB").on("click", () => {confirmAlternative(correct)});
+// $(".btnletterC").on("click", () => {confirmAlternative(correct)});
+// $(".btnletterD").on("click", () => {confirmAlternative(correct)});
 }
 
 function confirmAlternative(answer){
-  console.log("banana");
-  if($(this) === answer){
-    $(this).attr("class","green");
-    counter();
-  }else{
-    $(this).attr("class","red");
-  }
+  console.log("OIOI");
+  // console.log($(this))
+  // if($(this) === answer){
+  //   $(this).attr("class","green");
+  //   counter();
+  // }else{
+  //   $(this).attr("class","red");
+  // }
 }
 
 function counter(){
