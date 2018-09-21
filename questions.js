@@ -21,22 +21,47 @@ function error(){
 }
 
 function getFromDB(data){
-  let amount = data.results;
-  for(a of amount){
-    let question = a.question;
-    let answerCorrect = a.correct_answer;
-    let answerIncorrect = a.incorrect_answers;
-    createTemplate(question, answerCorrect, answerIncorrect);
+  for(a of data.results){
+    let answers = arrOfAnswers(a.correct_answer, a.incorrect_answers);
+    createTemplate(a.question, answers, a.correct_answer);
+  }
+}
+function arrOfAnswers(right, array){
+let aleatorio = Math.floor(Math.random() * 4);
+array.splice(aleatorio, 0, right);
+  return array;
+}
+
+function createTemplate(question, arrAns, correct){
+  let result = `
+  <div class="olympicQuestion"> 
+    <h3 class="question">${question}</h3>
+    <button class="btnList btnletterA" type="submit">${arrAns[0]}</button>
+    <button class="btnList btnletterB" type="submit">${arrAns[1]}</button>
+    <button class="btnList btnletterC" type="submit">${arrAns[2]}</button>
+    <button class="btnList btnletterD" type="submit">${arrAns[3]}</button>
+  </div>`
+  $("#results").append(result);
+  events(correct);
+}
+
+function events(correct){
+$(".btnletterA").bind("click", confirmAlternative(correct));
+$(".btnletterB").bind("click", confirmAlternative(correct));
+$(".btnletterC").bind("click", confirmAlternative(correct));
+$(".btnletterD").bind("click", confirmAlternative(correct));
+}
+
+function confirmAlternative(answer){
+  console.log("banana");
+  if($(this) === answer){
+    $(this).attr("class","green");
+    counter();
+  }else{
+    $(this).attr("class","red");
   }
 }
 
-function createTemplate(question, right, wrong){
-  let result = document.getElementsByClassName("results")[0];
-  result.innerHTML = `
-  <div class="area-noticia"> ${docs.map(doc => ` <div class="noticia">
-      <h3> ${doc.headline.main}</h3>
-      <p> ${doc.snippet}</p>
-      <a href="${doc.web_url}">Link para original </a>
-    </div>`).join("")}
-  </div>`
+function counter(){
+
 }

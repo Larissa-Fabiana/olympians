@@ -14,9 +14,22 @@ body {
   align-items: center;
   border: 1px solid black;
 }
-/* .main{
 
-} */
+.btnList{
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 1vw;
+}
+
+.green{
+  background-color: green;
+}
+
+red{
+  background-color: red;
+}
 
 .foot{
   width: 99vw;
