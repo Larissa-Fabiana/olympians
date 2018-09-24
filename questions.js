@@ -25,6 +25,7 @@ function getFromDB(data){
     let answers = arrOfAnswers(a.correct_answer, a.incorrect_answers);
     createTemplate(a.question, answers, a.correct_answer);
   }
+  setIds();
 }
 function arrOfAnswers(right, array){
 let aleatorio = Math.floor(Math.random() * 4);
@@ -32,37 +33,57 @@ array.splice(aleatorio, 0, right);
   return array;
 }
 
-function createTemplate(question, arrAns, correct, id){
+function createTemplate(question, arrAns, /*correct, id*/){ /*data-id=""*/
   let result = `
   <div class="olympicQuestion"> 
     <h3 class="question">${question}</h3>
-    <button data-id="" class="btnList btnletterA" type="submit">${arrAns[0]}</button>
-    <button class="btnList btnletterB" type="submit">${arrAns[1]}</button>
-    <button class="btnList btnletterC" type="submit">${arrAns[2]}</button>
-    <button class="btnList btnletterD" type="submit">${arrAns[3]}</button>
+    <button class="btnList" type="submit">${arrAns[0]}</button>
+    <button class="btnList" type="submit">${arrAns[1]}</button>
+    <button class="btnList" type="submit">${arrAns[2]}</button>
+    <button class="btnList" type="submit">${arrAns[3]}</button>
   </div>`
   $("#results").append(result);
-  events(correct);
+  // events(correct);
 }
 
-function events(correct){
-$(`.btnletterA[data-id=${id}]`).on("click", () => {confirmAlternative(correct)});
-// $(".btnletterB").on("click", () => {confirmAlternative(correct)});
-// $(".btnletterC").on("click", () => {confirmAlternative(correct)});
-// $(".btnletterD").on("click", () => {confirmAlternative(correct)});
+function setIds(){
+  // console.log( $('.btnList'));
+  for(i of $('.btnList')){
+    // console.log(i);
+    $(this).attr("data-id");
+    console.log($(this));
+  }
+  // let val = $('.btnList');
+  // val.forEach((element, index) => {
+  //   console.log(index);
+    // $(this).attr("data-id", index)
+  // });
+  // $('.btnList').data('id') = number;
 }
 
-function confirmAlternative(answer){
-  console.log("OIOI");
-  // console.log($(this))
-  // if($(this) === answer){
-  //   $(this).attr("class","green");
-  //   counter();
-  // }else{
-  //   $(this).attr("class","red");
-  // }
-}
+// function events(correct){
+// $(`.btnletterA[data-id=${id}]`).on("click", () => {confirmAlternative(correct)});
+// // $(".btnletterB").on("click", () => {confirmAlternative(correct)});
+// // $(".btnletterC").on("click", () => {confirmAlternative(correct)});
+// // $(".btnletterD").on("click", () => {confirmAlternative(correct)});
+// }
 
-function counter(){
+// function confirmAlternative(answer){
+//   console.log("OIOI");
+//   // console.log($(this))
+//   // if($(this) === answer){
+//   //   $(this).attr("class","green");
+//   //   counter();
+//   // }else{
+//   //   $(this).attr("class","red");
+//   // }
+// }
 
-}
+// function counter(){
+
+// }
+
+/*btnletterA
+btnletterB
+btnletterC
+btnletterD*/
