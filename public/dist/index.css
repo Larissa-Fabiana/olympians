@@ -1,0 +1,111 @@
+body{
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Lato', sans-serif;
+}
+.head{
+  width: 99vw;
+  height: 10vh;
+  background-color: #EEDD82;
+  color: black;
+  font-family: 'Spirax', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  position: fixed;
+  top: 0px;
+}
+section{
+  height: 10vh;
+}
+.main-index{
+  width: 100vw;
+  height: 79vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main-image{
+  width: 50vw;
+  height: 50vh;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  color: white;
+  border-radius: 50%;
+  width: 20vw;
+  height: 5vh;
+  border: 1px solid black;
+}
+.btn:hover{
+  background-color: #EEDD82;
+  color: black;
+}
+.btnList{
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 1vw;
+}
+#purple{
+  border: purple 2px solid;
+}
+.btnAnswers-div{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.btnAnswers{
+  margin: 1vw 1vh;
+}
+.container-score{
+  background-image:url("https://www.clubecncbrasil.com.br/clubecnc/index.php?action=dlattach;topic=10097.0;attach=55796");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  color: #EEDD82;
+ } 
+.foot{
+  width: 99vw;
+  height: 10vh;
+  background-color: #EEDD82;
+  color: black;
+  font-family: 'Spirax', cursive;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  position: fixed;
+  bottom: 0px;
+}
+ul{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+li{
+  list-style-type: none;
+}
+a{
+  padding: 3vw 3vh;
+  text-decoration: none;
+}
+.text-black{
+ color: black;
+}
+span:hover{
+  color: red;
+}
+.not-found{
+  width: 100vw;
+  height: 70vh;
+  background-image:url("https://blog.octo.com/wp-content/uploads/2016/12/saori_kido_golden_arrow_001_by_saorihasbeenhit.jpg");
+  background-size: cover; 
+}
